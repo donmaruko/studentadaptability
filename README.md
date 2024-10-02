@@ -3,6 +3,8 @@
 ## Description
 This Python script implements a machine learning model to predict student adaptability levels in online education. It uses a Random Forest Classifier along with various data preprocessing and model improvement techniques to achieve accurate predictions based on student characteristics and environmental factors.
 
+The .py files contains a heap of notes in the bottom of the file explaining the processes.
+
 ## Dataset
 The program uses the 'student_adaptability.csv' dataset, which contains information about students' adaptability to online learning. Features include:
 
