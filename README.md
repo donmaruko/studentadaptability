@@ -77,6 +77,3 @@ The target variable is 'Adaptivity Level', which the model aims to predict.
 2. Place the 'student_adaptability.csv' file in the same directory as the script.
 3. Run the script to train the model and see evaluation results.
 4. To predict for new data, use the provided example at the end of the script and modify the input data as needed.
-
-## Note
-This script is designed for educational purposes and demonstrates various machine learning techniques. For production use, consider additional error handling, data validation, and possibly more extensive feature engineering.
