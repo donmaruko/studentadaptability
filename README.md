@@ -1,10 +1,10 @@
 # Student Adaptability Level Prediction
 
 ## Description
-This Python script implements a machine learning model to predict student adaptability levels in online education. It uses a Random Forest Classifier along with data preprocessing and model improvement methbods to achieve accurate predictions based on student characteristics and environmental factors.
+This Python script implements a machine learning model to predict student adaptability levels in online education. It uses a Random Forest Classifier along with various data preprocessing and model improvement techniques to achieve accurate predictions based on student characteristics and environmental factors.
 
 ## Dataset
-The program uses the 'student_adaptability.csv' dataset, which contains information about students' adaptability to online learning, including features such as:
+The program uses the 'student_adaptability.csv' dataset, which contains information about students' adaptability to online learning. Features include:
 
 - Gender
 - Age
@@ -21,6 +21,55 @@ The program uses the 'student_adaptability.csv' dataset, which contains informat
 - Device type used for learning
 
 The target variable is 'Adaptivity Level', which the model aims to predict.
+
+## Requirements
+- Python 3.7+
+- pandas
+- scikit-learn
+- imbalanced-learn (for SMOTE)
+
+## Installation
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/donmaruko/studentadaptability.git
+   cd studentadaptability
+   ```
+
+2. Create a virtual environment (optional):
+   ```
+   python -m venv venv
+   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+   ```
+
+3. Install the required packages:
+   ```
+   pip install pandas scikit-learn imbalanced-learn
+   ```
+
+## Usage
+
+1. Ensure you have the 'student_adaptability.csv' file in the project directory.
+
+2. Run the script:
+   ```
+   python studentadapt.py
+   ```
+
+3. The script will output the model's accuracy and a classification report.
+
+4. To predict adaptability for new data, modify the `new_data` DataFrame in the script:
+
+   ```python
+   new_data = pd.DataFrame({
+       'Gender': [label_encoders['Gender'].transform(['Girl'])],
+       'Age': [label_encoders['Age'].transform(['21-25'])],
+       'Education Level': [label_encoders['Education Level'].transform(['University'])],
+       # ... (add other features)
+   })
+   prediction = best_model.predict(new_data)
+   print("Predicted Adaptivity Level:", label_encoders['Adaptivity Level'].inverse_transform(prediction))
+   ```
 
 ## Architecture and Workflow
 
@@ -67,13 +116,19 @@ The target variable is 'Adaptivity Level', which the model aims to predict.
 5. **Cross-Validation**:
    - Uses 10-fold cross-validation to ensure robust model evaluation
 
-## Requirements
-- pandas
-- scikit-learn
-- imbalanced-learn (for SMOTE)
+## Customization
 
-## Usage
-1. Ensure you have the required libraries installed.
-2. Place the 'student_adaptability.csv' file in the same directory as the script.
-3. Run the script to train the model and see evaluation results.
-4. To predict for new data, use the provided example at the end of the script and modify the input data as needed.
+To modify the hyperparameter search space, edit the `param_dist` dictionary in the script:
+
+```python
+param_dist = {
+    'model__n_estimators': [100, 200, 300, 400, 500],
+    'model__max_depth': [None, 10, 20, 30, 40, 50],
+    'model__min_samples_split': [2, 5, 10, 15],
+    'model__min_samples_leaf': [1, 2, 4, 6]
+}
+```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
