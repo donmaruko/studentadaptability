@@ -272,3 +272,15 @@ classification report metrics:
 like if 90% of students have high adaptability, even a model that predicts everyone has high
 adaptability would have 90% accuracy, but it's not useful, and could have poor precision and recall
 '''
+
+
+'''
+why test the new best model on a new set of data points?
+- to assess generalization, the model must generalize well to unseen data, meaning it should perform well
+on not just training data but on new data points as well
+- to detect overfitting, new data points help verify whether the model has learned the underlying
+patterns in the data or simply memorized the training set
+- to validate hyperparam tuning on unseen data
+- avoids the risk of data leakage, where info from the training set inadvertently influences the model,
+testing on new data verifies that the model hasn't been exposed to any data it shouldn't have been
+'''
